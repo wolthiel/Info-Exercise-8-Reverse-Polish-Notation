@@ -1,9 +1,10 @@
-public interface Stack {
+public interface Stack<T> {
 	
-	abstract void push(String elem);
+	abstract void push(T elem); //fügt neues Objekt ins Stack
 	
-	default String pop() {
-		return "Hallo";
-	}
+	abstract T pop(); //nimmt erstes Objekt des Stacks und entfernt es
 	
+	abstract T peek(); //schaut auf das oberste Objekt des Stacks
+	
+	abstract String toString(); //druckt Stack aus
 }
