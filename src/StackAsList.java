@@ -11,6 +11,12 @@ public class StackAsList {
 		totalNumberOfNodes ++;
 	}
 	
+	// Überprüft, ob die Liste leer ist
+	public boolean isEmpty() {
+		if (first == null) { return true; }
+		else return false;
+	}
+	
 	// Druckt alle Objekte im Node aus.
 	// Startet mit der ersten Position.
 	// Jedes Objekt erhält eine neue Zeile.
