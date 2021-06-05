@@ -24,6 +24,14 @@ public class StackAsList {
 		return object;
 	}
 	
+	//Gib mir ein peek aus, das in ein String umgewandelt wurde
+	public String peekAsString() {
+		if (first == null) { throw new NoSuchElementException(); }
+		String string = "";
+		string = string + toString(first.data);
+		return string;
+	}
+	
 	// Druckt alle Objekte im Node aus.
 	// Startet mit der ersten Position.
 	// Jedes Objekt erhält eine neue Zeile.
