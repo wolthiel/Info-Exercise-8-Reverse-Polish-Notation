@@ -18,11 +18,11 @@ public class StackAsList {
 		Node currentNode = first;		
 		while (currentNode.next != null)
 		{
-			System.out.println(currentNode.data);
+			System.out.println(toString(currentNode.data));
 			currentNode = currentNode.next;
 		}
 		if (currentNode.next == null) {
-			System.out.println(currentNode.data);
+			System.out.println(toString(currentNode.data));
 		}
 	}
 	
@@ -42,6 +42,12 @@ public class StackAsList {
 	// Erstellt einen Listen-Iterator
 	public StackListIterator listIterator() {
 		return new StackListIterator();
+	}
+	
+	// Macht aus einem Objekt einen String
+	public String toString(Object object) {
+		String newString = "" + object;
+		return newString;
 	}
 	
 	// Definiert die Klasse "Node"
