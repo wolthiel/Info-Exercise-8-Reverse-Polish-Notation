@@ -46,6 +46,19 @@ public class StackAsList {
 			System.out.println(toString(currentNode.data));
 		}
 	}
+	public String allNodesToString() {
+		Node currentNode = first;
+		String string = "";
+		while (currentNode.next != null)
+		{
+			string = string + toString(currentNode.data);
+			currentNode = currentNode.next;
+		}
+		if (currentNode.next == null) {
+			string = string + toString(currentNode.data);
+		}
+		return string;
+	}
 	
 	// Entfernt das Objekt an der ersten Position im Stack.
 	public Object removeFirst() {
