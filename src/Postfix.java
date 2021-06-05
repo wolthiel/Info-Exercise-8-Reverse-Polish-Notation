@@ -94,26 +94,27 @@ public class Postfix {
 	    	StackAsList stackforDigits = new StackAsList();
 	    	char[] c = exp.toCharArray();
 	    	String string;
+	    	StackAsList.StackListIterator iterator = stackforDigits.new StackListIterator();
 			
 			for (char chr: c) {
 				if(Character.isDigit(chr)){
-					stackforDigits.addFirstNode(chr);	
+					iterator.add(chr);
 				} else if (!(Character.isDigit(chr))){
 										
 					switch(chr) {
 					case '+':
-						operator = chr;
+						operator = '+';
 					case '/':
-						operator = chr;
+						operator = '/';
 					case '-':	
-						operator = chr;
+						operator = '-';
 					case '*' :
-						operator = chr;	
+						operator = '*';
 					}
 			}
 	    }
-			stackforDigits.addFirstNode(operator);
-			string = stackforDigits.toString();
+			iterator.add(operator);
+			string = stackforDigits.allNodesToString();
 			return string;
 
 	}
