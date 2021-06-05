@@ -37,6 +37,18 @@ public class Postfix {
 		return result;
 	}
 	
+	private void makeObjectToChar(){
+		StackAsList stackforDigits = new StackAsList();
+		String string = stackforDigits.peekAsString();
+		char[] ch = new char[string.length()];
+		for (int i = 0; i < string.length(); i++) {
+			ch[i] = string.charAt(i);
+			}
+		for (char character : ch) {
+			Prec(character);
+		}
+	}
+
 	      
 	    // A utility function to return 
 	    // precedence of a given operator
