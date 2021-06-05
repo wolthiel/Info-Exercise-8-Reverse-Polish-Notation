@@ -17,6 +17,13 @@ public class StackAsList {
 		else return false;
 	}
 	
+	// Gibt den Inhalt des ersten Nodes wieder
+	public Object peek() {
+		if (first == null) { throw new NoSuchElementException(); }
+		Object object = first.data;
+		return object;
+	}
+	
 	// Druckt alle Objekte im Node aus.
 	// Startet mit der ersten Position.
 	// Jedes Objekt erhält eine neue Zeile.
