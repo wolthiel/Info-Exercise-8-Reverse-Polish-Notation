@@ -46,6 +46,9 @@ public class StackAsList {
 			System.out.println(toString(currentNode.data));
 		}
 	}
+	
+	// Macht aus allein Objekten einen durchgehenden String
+	// Startet mit der ersten Position
 	public String allNodesToString() {
 		Node currentNode = first;
 		String string = "";
