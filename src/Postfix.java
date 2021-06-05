@@ -1,13 +1,16 @@
 public class Postfix {
 	
+	
 	public int evaluate(String pfx) {
-
+		
+		String ffff =  infixToPostfix(pfx);
+		
 		StackAsList stackforDigits = new StackAsList();
 		int result = 0;
 		int firstdigit = 0;
 		int seconddigit = 0;
 
-		char[] c = pfx.toCharArray();
+		char[] c = ffff.toCharArray();
 		
 		for (char chr: c) {
 			if(Character.isDigit(chr)){
@@ -37,7 +40,7 @@ public class Postfix {
 		return result;
 	}
 	
-	private void makeObjectToChar(){
+	public static char makeObjectToChar(){
 		StackAsList stackforDigits = new StackAsList();
 		String string = stackforDigits.peekAsString();
 		char[] ch = new char[string.length()];
@@ -45,8 +48,9 @@ public class Postfix {
 			ch[i] = string.charAt(i);
 			}
 		for (char character : ch) {
-			Prec(character);
+			return character;
 		}
+		return 0;
 	}
 
 	      
@@ -74,65 +78,43 @@ public class Postfix {
 	       
 	    // The main method that converts 
 	    // given infix expression
-	    // to postfix expression. 
+	    // to postfix expression.
+	    /* neue Var für opperator
+	     * 1: loop für jedes Element im Stack
+	     * 2: in loop switch-statement -> switch für opperatoren + defaultwert für alles andere defwert wird in anderen Stack gegeben
+	     * 3:am ende wird der opperator hinzugefügt 
+	     * 
+	     */
+	    
+	    
+	    
 	    public static String infixToPostfix(String exp)
 	    {
-	        // initializing empty String for result
-	        String result = new String("");
-	          
-	        // initializing empty stack
-	        StackAsList stackforDigits = new StackAsList();
-	          
-	        for (int i = 0; i<exp.length(); ++i)
-	        {
-	            char c = exp.charAt(i);
-	              
-	            // If the scanned character is an
-	            // operand, add it to output.
-	            if (Character.isLetterOrDigit(c))
-	                result += c;
-	               
-	            // If the scanned character is an '(', 
-	            // push it to the stack.
-	            else if (c == '(')
-	            	stackforDigits.addFirstNode(c);
-	              
-	            //  If the scanned character is an ')', 
-	            // pop and output from the stack 
-	            // until an '(' is encountered.
-	            else if (c == ')')
-	            {
-	                while (!stackforDigits.isEmpty() && 
-	                		stackforDigits.peek().toString().charAt(0) != '(')
-	                    result += stackforDigits.removeFirst();
-	                  
-	                stackforDigits.removeFirst();
-	            }
-	            else // an operator is encountered
-	            {
-	                while (!(stackforDigits.removeFirst() && Prec(c) 
-	                         < Prec(stackforDigits.peek()))){
-	                    
-	                    result += stackforDigits.removeFirst();
-	             }
-	                stackforDigits.addFirstNode(c);
-	            }
-	       
-	        }
-	        
-	       
-	        // pop all the operators from the stack
-	        while (!stackforDigits.isEmpty()){
-	            if(stackforDigits.peek().toString().charAt(0) == '(')
-	                return "Invalid Expression";
-	            result += stackforDigits.removeFirst();
-	         }
-	        return result;
-	    			
-	}
-	    public static void main(String[] args) 
-	    {
-	        String exp = "a+b*(c^d-e)^(f+g*h)-i";
-	        System.out.println(infixToPostfix(exp));
+	    	char operator = 0;
+	    	StackAsList stackforDigits = new StackAsList();
+	    	char[] c = exp.toCharArray();
+	    	String string;
+			
+			for (char chr: c) {
+				if(Character.isDigit(chr)){
+					stackforDigits.addFirstNode(chr);	
+				} else if (!(Character.isDigit(chr))){
+										
+					switch(chr) {
+					case '+':
+						operator = chr;
+					case '/':
+						operator = chr;
+					case '-':	
+						operator = chr;
+					case '*' :
+						operator = chr;	
+					}
+			}
 	    }
+			stackforDigits.addFirstNode(operator);
+			string = stackforDigits.toString();
+			return string;
+
 	}
+}
