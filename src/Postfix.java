@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class Postfix {
 	
+	Postfix () {
+		InputofUserInConsole();
+	}
+	
 	
 	public int evaluate(String pfx) {
 		
@@ -65,13 +69,13 @@ public class Postfix {
 				case '*' :
 					operator = chr;
 				}
+			}
 		}
-    }
 		iterator.add(operator);
 		string = stackforDigits.allNodesToString();
 		return string;
 
-}
+    }
 		public void InputofUserInConsole() {
 			Scanner scan = new Scanner(System.in);
 			System.out.print("Input: ");
